@@ -6,7 +6,10 @@ import com.java.aprendendospring.infrastructure.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service @RequiredArgsConstructor public class UsuarioService {
+@Service
+@RequiredArgsConstructor
+
+public class UsuarioService {
 
 
     private final UsuarioRepository usuarioRepository;
@@ -27,7 +30,7 @@ import org.springframework.stereotype.Service;
                 throw new ConflictException("Email já cadastrado" + email);
             }
         } catch (ConflictException e) {
-            throw new ConflictException("Email já cadastrado" + e.getCause());
+            throw new ConflictException("Email já cadastrado", e.getCause());
         }
     }
 
